@@ -1,7 +1,8 @@
-import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import "../../../css/login.css";
-import type { AuthResponse } from "../AuthResponse";
+import type { AuthResponse } from "../authHelpers";
 import { useNavigate } from "react-router-dom";
+import { handleInputChange, useRedirect } from "../authHelpers";
 
 export default function Login() {
   const [credentials, setCredentials] = useState({
@@ -12,7 +13,7 @@ export default function Login() {
   const [authResult, setAuthResult] = useState<AuthResponse | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const navigate = useNavigate();
+  const backend_api = import.meta.env.VITE_BACKEND_API;
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,7 +30,7 @@ export default function Login() {
     password: string;
   }): Promise<AuthResponse> {
     try {
-      const response = await fetch("http://localhost:5279/api/auth/login", {
+      const response = await fetch(`${backend_api}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,20 +54,7 @@ export default function Login() {
     };
   }
 
-  useEffect(() => {
-    if (authResult?.status) {
-      const timer = setTimeout(() => {
-        navigate("/");
-      }, 1200);
-
-      return () => clearTimeout(timer);
-    }
-  }, [authResult, navigate]);
-
-  async function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    const { name, value } = e.target;
-    setCredentials((prev) => ({ ...prev, [name]: value }));
-  }
+  useRedirect(!!authResult?.status, "/");
 
   return (
     <>
@@ -79,7 +67,7 @@ export default function Login() {
           type="email"
           placeholder="email"
           value={credentials.email}
-          onChange={handleChange}
+          onChange={(e) => handleInputChange(e, setCredentials)}
           required
         />
         <br />
@@ -90,7 +78,7 @@ export default function Login() {
           type="password"
           placeholder="password"
           value={credentials.password}
-          onChange={handleChange}
+          onChange={(e) => handleInputChange(e, setCredentials)}
           required
         />
         <br />
