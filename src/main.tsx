@@ -3,9 +3,10 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./css/index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./components/authentication/login/Login.tsx";
-import Register from "./components/authentication/register/Register.tsx";
-import NotFoundPage from "./components/NotFoundPage.tsx";
+import Login from "./components/Login.tsx";
+import Register from "./components/Register.tsx";
+import NotFoundPage from "./pages/NotFoundPage.tsx";
+import { AuthProvider } from "./context/AuthContext.tsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );
