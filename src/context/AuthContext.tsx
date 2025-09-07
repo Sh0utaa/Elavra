@@ -31,6 +31,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       await authService.loginRequest(email, password);
       const user = await authService.validateUser();
+      localStorage.setItem("user", JSON.stringify(user));
       dispatch({ type: "LOGIN_SUCCESS", payload: user });
       return true;
     } catch (error) {
@@ -44,6 +45,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   async function logout() {
     await authService.logoutRequest();
+    localStorage.removeItem("user");
     dispatch({ type: "LOGOUT" });
   }
 
@@ -61,7 +63,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   useEffect(() => {
-    validateUser();
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+      dispatch({ type: "LOGIN_SUCCESS", payload: JSON.parse(savedUser) });
+    } else {
+      validateUser();
+    }
   }, []);
 
   return (

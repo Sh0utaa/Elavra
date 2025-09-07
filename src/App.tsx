@@ -1,20 +1,11 @@
-import { useAuth } from "./context/AuthContext";
+import { Link } from "react-router-dom";
 import "./css/App.css";
 
 function App() {
-  const { logout } = useAuth();
-
-  async function handleLogout() {
-    try {
-      await logout();
-      console.log("Logout successful");
-    } catch (error) {
-      console.error("Logout failed: ", error);
-    }
-  }
   return (
     <>
-      <button onClick={handleLogout}>Logout</button>
+      <h1>Hello</h1>
+      <Link to={"/exam"}>Start exam</Link>
     </>
   );
 }

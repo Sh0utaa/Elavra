@@ -8,6 +8,9 @@ import Register from "./components/Register.tsx";
 import NotFoundPage from "./pages/NotFoundPage.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
 import { RegistrationProvider } from "./context/RegistrationContext.tsx";
+import { Profile } from "./components/Profile.tsx";
+import { Exam } from "./components/Exam.tsx";
+import { PrivateRoute } from "./components/PrivateRoute.tsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +24,18 @@ const router = createBrowserRouter([
   {
     path: "/auth/register",
     element: <Register />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/exam",
+    element: (
+      <PrivateRoute>
+        <Exam />
+      </PrivateRoute>
+    ),
   },
   {
     path: "*",
