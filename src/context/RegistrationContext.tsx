@@ -12,7 +12,7 @@ import {
   type RegistrationState,
   type RegistrationAction,
 } from "./registrationReducer";
-import * as registrationService from "../services/regostrationService";
+import * as registrationService from "../services/registrationService";
 import { useAuth } from "./AuthContext";
 
 type RegistrationContextType = RegistrationState & {

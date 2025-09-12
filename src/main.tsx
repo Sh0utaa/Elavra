@@ -10,7 +10,7 @@ import { AuthProvider } from "./context/AuthContext.tsx";
 import { RegistrationProvider } from "./context/RegistrationContext.tsx";
 import { Profile } from "./components/Profile.tsx";
 import { Exam } from "./components/Exam.tsx";
-import { PrivateRoute } from "./components/PrivateRoute.tsx";
+import { PrivateRoute } from "./pages/PrivateRoute.tsx";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +27,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <Profile />,
+    element: (
+      <PrivateRoute>
+        <Profile />,
+      </PrivateRoute>
+    ),
   },
   {
     path: "/exam",

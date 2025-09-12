@@ -1,22 +1,14 @@
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export function Profile() {
-  const { user, logout, loading } = useAuth();
-  const navigate = useNavigate();
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  const { user, logout } = useAuth();
 
   if (!user) {
-    navigate("/auth/login", { replace: true });
-    return null;
+    return <div>Error: User not found</div>;
   }
 
   async function handleLogout() {
     await logout();
-    navigate("/", { replace: true });
   }
 
   return (

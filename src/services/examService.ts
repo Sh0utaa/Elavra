@@ -14,5 +14,5 @@ export async function getQuestions(category: number, language: string) {
     throw new Error(msg || "failed to fetch questions");
   }
 
-  return JSON.stringify(res);
+  return res.json();
 }
