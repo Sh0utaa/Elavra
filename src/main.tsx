@@ -11,6 +11,7 @@ import { RegistrationProvider } from "./context/RegistrationContext.tsx";
 import { Profile } from "./components/Profile.tsx";
 import { Exam } from "./components/Exam.tsx";
 import { PrivateRoute } from "./pages/PrivateRoute.tsx";
+import { Leaderboards } from "./components/Leaderboards.tsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         <Profile />,
       </PrivateRoute>
     ),
+  },
+  {
+    path: "/leaderboards",
+    element: <Leaderboards />,
   },
   {
     path: "/exam",
