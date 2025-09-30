@@ -11,8 +11,6 @@ export function Exam() {
     correctAmount: 0,
   });
 
-  useEffect(() => {}, [exam.answers]);
-
   useEffect(() => {
     async function fetchQeustions() {
       try {
