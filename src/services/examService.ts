@@ -1,4 +1,4 @@
-import type { ExamState } from "../context/examReducer";
+import type { ExamState } from "../reducers/examReducer";
 
 const api = import.meta.env.VITE_BACKEND_API;
 

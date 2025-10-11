@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-import { examReducer, initialExamState } from "../context/examReducer";
+import { examReducer, initialExamState } from "../reducers/examReducer";
 import { getQuestions } from "../services/examService";
 import { submitAnswers as submitAnswersService } from "../services/examService";
 
@@ -14,7 +14,11 @@ export function Exam() {
   useEffect(() => {
     async function fetchQeustions() {
       try {
-        var questions = await getQuestions(1, "ka");
+        const searchParams = new URLSearchParams(location.search);
+        const lang = searchParams.get("lang") || "en";
+        const category = searchParams.get("category") || "2";
+
+        var questions = await getQuestions(parseInt(category), lang);
         dispatch({
           type: "EXAM_START",
           payload: questions,

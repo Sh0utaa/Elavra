@@ -8,10 +8,11 @@ import Register from "./components/Register.tsx";
 import NotFoundPage from "./pages/NotFoundPage.tsx";
 import { AuthProvider } from "./context/AuthContext.tsx";
 import { RegistrationProvider } from "./context/RegistrationContext.tsx";
-import { Profile } from "./components/Profile.tsx";
 import { Exam } from "./components/Exam.tsx";
 import { PrivateRoute } from "./pages/PrivateRoute.tsx";
 import { Leaderboards } from "./components/Leaderboards.tsx";
+import Password from "./components/Password.tsx";
+import Profile from "./components/Profile.tsx";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,14 @@ const router = createBrowserRouter([
         <Exam />
       </PrivateRoute>
     ),
+  },
+  {
+    path: "/forgot-password",
+    element: <Password />,
+  },
+  {
+    path: "/change-password",
+    element: <Password />,
   },
   {
     path: "*",

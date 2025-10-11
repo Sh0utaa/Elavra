@@ -11,7 +11,7 @@ import {
   initialRegistrationState,
   type RegistrationState,
   type RegistrationAction,
-} from "./registrationReducer";
+} from "../reducers/registrationReducer";
 import * as registrationService from "../services/registrationService";
 import { useAuth } from "./AuthContext";
 

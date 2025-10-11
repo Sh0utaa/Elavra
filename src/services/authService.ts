@@ -1,4 +1,4 @@
-import type { User } from "../context/authReducer";
+import type { User } from "../reducers/authReducer";
 
 const api = import.meta.env.VITE_BACKEND_API;
 

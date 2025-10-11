@@ -7,6 +7,7 @@ export type ResetPasswordState = {
   newPassword: string | null;
   confirmPassword: string | null;
   error: string | null;
+  success: string | null;
 };
 
 export type PasswordAction =
@@ -15,8 +16,7 @@ export type PasswordAction =
   | { type: "PASSWORD_SET_CODE"; payload: { confirmationCode: string } }
   | { type: "PASSWORD_VERIFY_SUCCESS" }
   | {
-      type: "PASSWORD_UPDATE";
-      payload: { newPassword: string; confirmPassword: string };
+      type: "PASSWORD_SUCCESS";
     }
   | { type: "PASSWORD_ERROR"; payload: { error: string } }
   | { type: "PASSWORD_RESET" };
@@ -29,6 +29,7 @@ export const initialPasswordState: ResetPasswordState = {
   newPassword: null,
   confirmPassword: null,
   error: null,
+  success: null,
 };
 
 export function passwordReducer(
@@ -50,11 +51,10 @@ export function passwordReducer(
       return { ...state, confirmationCode: action.payload.confirmationCode };
     case "PASSWORD_VERIFY_SUCCESS":
       return { ...state, step: "change", error: null };
-    case "PASSWORD_UPDATE":
+    case "PASSWORD_SUCCESS":
       return {
         ...state,
-        newPassword: action.payload.newPassword,
-        confirmPassword: action.payload.confirmPassword,
+        success: "password reset successfully",
       };
     case "PASSWORD_ERROR":
       return { ...state, error: action.payload.error };

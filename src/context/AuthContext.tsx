@@ -12,7 +12,7 @@ import {
   authReducer,
   type AuthAction,
   type AuthState,
-} from "./authReducer";
+} from "../reducers/authReducer";
 import * as authService from "../services/authService";
 
 type AuthContextType = AuthState & {
