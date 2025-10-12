@@ -40,7 +40,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } catch (error) {
       dispatch({
         type: "LOGIN_ERROR",
-        payload: (error as Error).message,
+        payload: "Wrong email or password",
       });
       return false;
     }
@@ -62,7 +62,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       localStorage.removeItem("user");
       dispatch({
         type: "VALIDATION_ERROR",
-        payload: "User couldn't be verified. Please log in again.",
+        payload: "",
       });
     } finally {
       setHasValidated(true);

@@ -13,6 +13,7 @@ import { PrivateRoute } from "./pages/PrivateRoute.tsx";
 import { Leaderboards } from "./components/Leaderboards.tsx";
 import Password from "./components/Password.tsx";
 import Profile from "./components/Profile.tsx";
+import Documentation from "./pages/Documentation.tsx";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/auth/register",
     element: <Register />,
+  },
+  {
+    path: "/documentation",
+    element: <Documentation />,
   },
   {
     path: "/profile",
