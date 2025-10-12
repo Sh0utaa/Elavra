@@ -5,12 +5,12 @@ function App() {
   const [category, setCategory] = useState("2");
   const [language, setLanguage] = useState("en");
 
-  const examUrl = `/exam?lang=${language}&category=${category}`;
+  const examUrl = `/#/exam?lang=${language}&category=${category}`;
 
   return (
     <>
       <h1>PROJECT CURRENTLY UNDER CONSTRUCTION</h1>
-      <a href="/documentation">please visit the documentation first</a>
+      <a href="/#/documentation">please visit the documentation first</a>
       <br />
       <br />
       <br />

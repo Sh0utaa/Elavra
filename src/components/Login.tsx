@@ -52,7 +52,7 @@ export default function Login() {
               }}
             />
             <br />
-            <a href="/forgot-password">forgot password?</a>
+            <a href="/#/forgot-password">forgot password?</a>
             <br />
             <br />
             <button type="submit">Login</button>
