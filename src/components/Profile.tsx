@@ -9,7 +9,7 @@ export default function Profile() {
       <p>{user?.id}</p>
       <p>{user?.name}</p>
       <p>{user?.email}</p>
-      <a href="/#/change-password">change password</a>
+      <a href="/change-password">change password</a>
       <br />
       <br />
       <button onClick={logout}>logout</button>
