@@ -9,7 +9,11 @@ function App() {
 
   return (
     <>
-      <h1>Start exam</h1>
+      <h1>PROJECT CURRENTLY UNDER CONSTRUCTION</h1>
+      <a href="/documentation">please visit the documentation first</a>
+      <br />
+      <br />
+      <br />
       <label htmlFor="category">Category: </label>
       <select
         name="category"
