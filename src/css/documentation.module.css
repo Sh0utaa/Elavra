@@ -1,18 +1,44 @@
 .documentationContainer {
   width: 100%;
   height: 100vh;
-  border: 1px solid black;
   display: flex;
+  border: 1px solid black;
+  font-family: Arial, sans-serif;
 }
 
+/* Sidebar */
 .listOfContents {
   width: 20%;
   height: 100%;
-  border: 1px solid black;
+  border-right: 1px solid black;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
+.listOfContents ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listOfContents li {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.listOfContents li:hover {
+  background-color: #f0f0f0;
+}
+
+.listOfContents li.active {
+  background-color: #f0f0f0;
+}
+
+/* Main content area */
 .content {
   width: 80%;
   height: 100%;
-  border: 1px solid black;
+  padding: 1rem;
+  box-sizing: border-box;
 }
