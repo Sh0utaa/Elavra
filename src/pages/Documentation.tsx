@@ -15,7 +15,7 @@ export default function Documentation() {
   const [topic, setTopic] = useState<DocTopic>("API Design System");
 
   const topicComponents: Record<DocTopic, JSX.Element> = {
-    "Introduction": <Introduction />,
+    Introduction: <Introduction />,
     "Design System": <DesignSystem />,
     "API Design System": <APIDesignSystem />,
   };

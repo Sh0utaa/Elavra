@@ -1,0 +1,21 @@
+              <source src="/assets/mood-porsche-gts.webm" type="video/webm" />
+            </video>
+
+            <div className="z-1 col-extended row-span-full mb-fluid-lg dark">
+              <h1 className="grid">
+                <span className="prose-heading-lg">Pattern</span>
+                <span className="prose-display-lg">Header</span>
+              </h1>
+
+              <PButtonPure
+                id="pause-button"
+                theme="dark"
+                icon={isVideoPaused ? "play" : "pause"}
+                onClick={toggleVideo}
+              >
+                {isVideoPaused ? "Play Video" : "Pause Video"}
+              </PButtonPure>
+            </div>
+          </div>
+        </main>
+      </div>

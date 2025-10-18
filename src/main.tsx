@@ -15,6 +15,7 @@ import Password from "./components/Password.tsx";
 import Profile from "./components/Profile.tsx";
 import Documentation from "./pages/Documentation.tsx";
 import Navbar from "./components/Navbar.tsx";
+import { PorscheDesignSystemProvider } from "@porsche-design-system/components-react";
 
 const router = createBrowserRouter([
   {
@@ -69,11 +70,13 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Navbar />
-    <AuthProvider>
-      <RegistrationProvider>
-        <RouterProvider router={router} />
-      </RegistrationProvider>
-    </AuthProvider>
+    <PorscheDesignSystemProvider>
+      <Navbar />
+      <AuthProvider>
+        <RegistrationProvider>
+          <RouterProvider router={router} />
+        </RegistrationProvider>
+      </AuthProvider>
+    </PorscheDesignSystemProvider>
   </StrictMode>
 );
