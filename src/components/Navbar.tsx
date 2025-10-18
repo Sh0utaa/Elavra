@@ -7,33 +7,20 @@ import {
   PCrest,
   PWordmark,
 } from "@porsche-design-system/components-react";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 function Navbar() {
   const [isDrilldownOpen, setIsDrilldownOpen] = useState(false);
-  const [isVideoPaused, setIsVideoPaused] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [activeDrilldownId, setActiveDrilldownId] = useState<string>("");
 
   const handleDrilldownUpdate = (e: any) => {
     setActiveDrilldownId(e.detail.activeIdentifier);
   };
 
-  const handleDrilldownDismiss = (e: any) => {
+  const handleDrilldownDismiss = () => {
     setIsDrilldownOpen(false);
   };
 
-  const toggleVideo = () => {
-    if (videoRef.current) {
-      const isPaused = videoRef.current.paused;
-      if (isPaused) {
-        videoRef.current.play();
-      } else {
-        videoRef.current.pause();
-      }
-      setIsVideoPaused(!isPaused);
-    }
-  };
   return (
     <PorscheDesignSystemProvider>
       <div className="bg-base">
