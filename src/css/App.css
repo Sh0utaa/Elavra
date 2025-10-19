@@ -1,0 +1,6 @@
+p-link-tile::part(wrapper),
+p-link-tile::part(link) {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}

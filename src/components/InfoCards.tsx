@@ -7,7 +7,7 @@ import guaranteedsuccess from "../public/assets/guaranteed success.jpg";
 const InfoCards: React.FC = () => {
   const cards = [
     {
-      title: "Latest questions and answers",
+      title: "Latest Q&A",
       imageUrl: latestqna,
       linkTo: "#",
     },
@@ -17,33 +17,43 @@ const InfoCards: React.FC = () => {
       linkTo: "#",
     },
     {
-      title: "Guaranteed success",
+      title: "Guaranteed Success",
       imageUrl: guaranteedsuccess,
       linkTo: "#",
     },
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-12">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section className="max-w-6xl mx-auto px-6 py-12 text-center">
+      {/* Cards */}
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
         {cards.map((c, idx) => (
-          <PLinkTile
+          <div
             key={idx}
-            href={c.linkTo}
-            label={c.title}
-            description=""
-            className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            className="flex-1 min-w-[225px] max-w-[350px] transition-all duration-300"
           >
-            <img
-              src={c.imageUrl}
-              alt={c.title}
-              className="w-full h-56 object-cover"
-            />
-          </PLinkTile>
+            <PLinkTile
+              href={c.linkTo}
+              label={c.title}
+              description={c.title}
+              compact={true}
+              size="inherit"
+              style={{
+                width: "100%",
+                fontSize: "20px",
+              }}
+            >
+              <img
+                src={c.imageUrl}
+                alt={c.title}
+                className="w-full h-56 object-cover rounded-xl"
+              />
+            </PLinkTile>
+          </div>
         ))}
       </div>
 
-      <p className="text-left text-gray-600 mt-8 max-w-4md mx-auto">
+      <p className="text-gray-600 text-xs mt-8 max-w-3xl mx-auto text-center sm:text-left sm:max-w-1xl">
         Getting ready for the Georgian driver’s license theory exam? Start
         studying with Elvera — the smarter, simpler way to prepare. Why waste
         time and money going to physical classes when you can learn everything
