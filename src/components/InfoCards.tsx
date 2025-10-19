@@ -53,7 +53,7 @@ const InfoCards: React.FC = () => {
         ))}
       </div>
 
-      <p className="text-gray-600 text-xs mt-8 max-w-3xl mx-auto text-center sm:text-left sm:max-w-1xl">
+      <p className="text-gray-600 text-xs mt-8 max-w-6xl mx-auto text-center sm:text-left sm:max-w-1xl">
         Getting ready for the Georgian driver’s license theory exam? Start
         studying with Elvera — the smarter, simpler way to prepare. Why waste
         time and money going to physical classes when you can learn everything
